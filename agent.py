@@ -1,19 +1,17 @@
 # agent.py
-# AI Policy Agent for Nigerian Cybersecurity Law
+# AI Policy Agent for Nigerian Cybersecurity Law (HTTP Version)
 # Built for ITU AI for Good Hackathon 2026
 # Author: Ikehi Isaac
 
 import os
-import google.generativeai as genai
+import json
+import requests
 from dotenv import load_dotenv
 
 # Load environment variables (API Key)
 load_dotenv()
 
 # --- 1. THE KNOWLEDGE BASE (Simulated for Demo) ---
-# In a full production environment, this would be a Vector Database (like ChromaDB).
-# For this hackathon, we use exact text snippets from the policies you provided.
-
 KNOWLEDGE_BASE = {
     "data_breach": """
     [NDPA 2023]: The Nigeria Data Protection Act mandates that data controllers must notify the Nigeria Data Protection Commission (NDPC) within 72 hours of becoming aware of a data breach. 
@@ -30,14 +28,12 @@ KNOWLEDGE_BASE = {
     """
 }
 
-# --- 2. SETUP GEMINI AI ---
-# Make sure you have a .env file with GEMINI_API_KEY=your_key_here
+# --- 2. SETUP API URL ---
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     raise ValueError("Please set GEMINI_API_KEY in your .env file")
 
-genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel('gemini-1.5-flash')
+API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
 
 # --- 3. THE RAG LOGIC ---
 def retrieve_policy_context(question):
@@ -53,7 +49,7 @@ def retrieve_policy_context(question):
         return KNOWLEDGE_BASE["default"]
 
 def ask_agent(question):
-    """Sends the question + policy context to the AI."""
+    """Sends the question + policy context to the AI via HTTP."""
     context = retrieve_policy_context(question)
     
     prompt = f"""
@@ -69,9 +65,15 @@ def ask_agent(question):
     {question}
     """
     
+    body = {
+        "contents": [{"parts": [{"text": prompt}]}]
+    }
+    
     try:
-        response = model.generate_content(prompt)
-        return response.text
+        response = requests.post(API_URL, json=body, timeout=30)
+        response.raise_for_status()
+        data = response.json()
+        return data["candidates"][0]["content"]["parts"][0]["text"].strip()
     except Exception as e:
         return f"Error connecting to AI: {e}"
 
