@@ -1,0 +1,27 @@
+# Knowledge Base Sources: Nigerian AI & Cybersecurity Policies
+
+This Knowledge Base is designed to power an AI Agent focused on Government Services, specifically helping Nigerian citizens and businesses understand their rights and obligations under national cybersecurity and AI laws.
+
+## Core Policy Documents Integrated
+
+1. **National Cybersecurity Policy & Strategy (2014)**
+   - *Relevance:* Provides the foundational doctrine on Cyberspace, Critical Information Infrastructure (CII), and national incident management (ngCERT).
+   - *Key Focus:* Defines how cyber threats (cybercrime, cyber-espionage) are managed and the role of the Office of the National Security Adviser (ONSA).
+
+2. **National Security Strategy (2019)**
+   - *Relevance:* Connects cybersecurity to broader national security. 
+   - *Key Focus:* Identifies cybercrime and fake news as critical threats to national stability and outlines the government's strategic response.
+
+3. **National Artificial Intelligence Strategy (NAIS) (2024)**
+   - *Relevance:* The blueprint for AI in Nigeria.
+   - *Key Focus:* Highlights the need for ethical AI, the establishment of a National AI Ethics Expert Group, and the risks of algorithmic bias. It maps AI to economic growth and social development.
+
+4. **Nigeria Data Protection Act (NDPA) 2023** *(Referenced via academic analysis)*
+   - *Relevance:* The primary law governing data privacy.
+   - *Key Focus:* Mandates data controllers to protect personal data, establishes the Nigeria Data Protection Commission (NDPC), and requires breach notifications.
+
+5. **Academic Analysis: Governing AI in Nigeria (SSRN)**
+   - *Relevance:* Highlights the gaps in Nigeria's legal framework, specifically the lack of a dedicated AI law and the need for accountability in algorithmic decision-making.
+
+## Mapping to ITU-T Y.3172 Readiness
+This Knowledge Base provides the regulatory framework necessary to train an AI agent that respects data privacy (NDPA), identifies national threats (NSS), and adheres to the ethical guidelines outlined in the NAIS.
