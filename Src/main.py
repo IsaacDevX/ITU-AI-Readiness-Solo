@@ -51,7 +51,7 @@ def generate_ai_response(user_query, policy_output):
             return "System Error: API Key is missing. Please check your .env file."
 
         # Using the latest stable model: gemini-3.8-flash
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key={API_KEY}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={API_KEY}"
         
         prompt = f"""
         You are a helpful Nigerian AI Legal Assistant. 
