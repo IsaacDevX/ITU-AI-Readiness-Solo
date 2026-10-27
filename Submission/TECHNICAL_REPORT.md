@@ -24,7 +24,7 @@ Nigeria is rapidly digitizing, yet its legal frameworks governing cyberspace (ND
 | **SRC** | Raw Sources | Data & Model Marketplace. | NDPA 2023, Cybercrimes Act 2015, NAIS. |
 | **C** | Collection | Secure HTTP API queries from the user. | NDPA 2023: Consent & Purpose Limitation rules. |
 | **PP** | Preprocessing | Text chunking, embedding, and PII stripping. | NDPA 2023: Data Minimization principles. |
-| **M** | Model / RAG | Retrieval over the verified legal corpus; LLM drafts the explanation. | NAIS Pillar 4: Responsible AI. |
+M | Model / RAG | Retrieval over the verified legal corpus; Google Gemini LLM (gemini-2.5-flash) drafts the explanation based on the retrieved context. | NAIS Pillar 4: Responsible AI. |
 | **P** | Policy Node | **Deterministic rule engine.** No AI model in the decision path. Four rules (e.g., "If breach, check 72-hour rule"). Returns: `VIOLATION`, `COMPLIANT`, `ILLEGAL_INTENT`. | Cybercrimes Act 2015 (Prohibits unauthorized access). |
 | **D** | Distribution | Attaches citations with the specific Act, Section, and URL; logs the audit entry. | NSS 2019: Data-driven governance. |
 | **SINK** | Application | User-facing chat interface; returns a 403-equivalent refusal if the query asks for illegal actions. | NAIS: Human-centric AI. |
