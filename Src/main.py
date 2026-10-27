@@ -67,7 +67,7 @@ def generate_ai_response(user_query, policy_output):
         headers = {'Content-Type': 'application/json'}
         
         try:
-            response = requests.post(url, headers=headers, data=json.dumps(payload), timeout=10)
+            response = requests.post(url, headers=headers, data=json.dumps(payload), timeout=30)
             response_data = response.json()
             
             # Error Handling: If API fails, don't crash. Fall back to hardcoded text.
